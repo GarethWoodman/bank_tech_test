@@ -13,20 +13,30 @@ describe Account do
 
   context 'Transactions' do
     let(:atm) do
-      atm = double("ATM")
-      atm.stub(:deposit).with(100)  { subject.balance += 100 }
-      atm.stub(:withdraw).with(100) { subject.balance -= 100 }
+      atm = double("ATM", :date => '15/06/2020')
+      atm.stub(:deposit).with(100)  { subject.transaction(100, atm.date) }
+      atm.stub(:withdraw).with(100) { subject.transaction(-100, atm.date) }
       atm
     end
 
-    it 'balance is 100 on deposit' do
-      atm.deposit(100)
-      expect(subject.balance).to eq 100
+    describe 'updates balance' do
+      it 'balance is 100 on deposit' do
+        atm.deposit(100)
+        expect(subject.balance).to eq 100
+      end
+
+      it 'balance is -100 on withdrawal' do
+        atm.withdraw(100)
+        expect(subject.balance).to eq -100
+      end
     end
 
-    it 'balance is -100 on withdrawal' do
-      atm.withdraw(100)
-      expect(subject.balance).to eq -100
+    describe 'stores each transaction' do
+      it 'stores date, credit, debit, balance' do
+        5.times { atm.deposit(100) }
+        2.times { atm.withdraw(100) }
+        expect(subject.transactions.last).to eq ['15/06/2020', 100, 0, 400]
+      end
     end
   end
 end
