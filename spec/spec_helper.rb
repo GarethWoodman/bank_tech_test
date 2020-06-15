@@ -13,6 +13,9 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'simplecov'
+SimpleCov.start
+
 RSpec.configure do |config|
   DATE = Time.now.strftime("%d/%m/%Y")
   # rspec-expectations config goes here. You can use an alternate
