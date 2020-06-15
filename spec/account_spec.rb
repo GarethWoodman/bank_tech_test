@@ -36,7 +36,7 @@ describe Account do
       it 'stores date, credit, debit, balance' do
         5.times { atm.deposit(100) }
         2.times { atm.withdraw(100) }
-        expect(subject.transactions.last).to eq [DATE, 100, 0, 400]
+        expect(subject.transactions.last).to eq [DATE, 100, "", 400]
       end
     end
   end

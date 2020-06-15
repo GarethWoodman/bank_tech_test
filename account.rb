@@ -13,7 +13,7 @@ class Account
 
   private
   def setup(amount)
-    @debit, @credit = 0, 0
+    @debit, @credit = "", ""
     @date = Time.now.strftime("%d/%m/%Y")
     amount > 0 ? (@debit = amount) : (@credit = amount.abs)
   end
