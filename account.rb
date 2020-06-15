@@ -6,12 +6,15 @@ class Account
   end
 
   def transaction(amount)
-    debit = 0
-    credit = 0
-    date = Time.now.strftime("%d/%m/%Y")
-    amount > 0 ? (debit = amount) : (credit = amount.abs)
-
-    @transactions << [date, credit, debit, @balance]
+    setup(amount)
+    @transactions << [@date, @credit, @debit, @balance]
     @balance += amount
+  end
+
+  private
+  def setup(amount)
+    @debit, @credit = 0, 0
+    @date = Time.now.strftime("%d/%m/%Y")
+    amount > 0 ? (@debit = amount) : (@credit = amount.abs)
   end
 end
