@@ -5,7 +5,6 @@
 
 ## Planning
 ### User Stories
-Given a client makes a deposit of 1000 on 10-01-2012
 ```
 As a Client
 So I can keep my money safe
@@ -22,22 +21,22 @@ So I can keep track of my spending
 I want a printed bank statement
 ```
 
-### Models
-#### Account
-##### Methods
+## Models
+### Account
+#### Methods
 * transaction
-##### Attributes
+#### Attributes
 * @balance = 0
 * @transactions = [date, credit, debit, balance]
 
-#### ATM
-##### Methods
+### ATM
+#### Methods
 * deposit - Account.transaction(+n, @date)
 * withdraw - Account.transaction(-n, @date)
-##### Attributes
+#### Attributes
 * @date
 
-#### Bank Statement
-##### Methods
+### Bank Statement
+#### Methods
 * print - Account.transcations.each { |transaction| p transaction }
 
