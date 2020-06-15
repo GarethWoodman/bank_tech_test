@@ -29,12 +29,14 @@ I want a printed bank statement
 * @balance = 0
 * @transactions = [date, credit, debit, balance]
 
+
 ### ATM
 #### Methods
 * deposit - Account.transaction(+n, @date)
 * withdraw - Account.transaction(-n, @date)
 #### Attributes
 * @date
+
 
 ### Bank Statement
 #### Methods
