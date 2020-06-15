@@ -1,4 +1,4 @@
-require './atm'
+require 'atm'
 
 describe Atm do
   let(:account) { Account.new }

@@ -1,4 +1,4 @@
-require './account_statement'
+require 'account_statement'
 DATE = Time.now.strftime("%d/%m/%Y")
 
 describe AccountStatement do
@@ -20,8 +20,6 @@ describe AccountStatement do
       statement += "#{DATE} ||  || #{50.00} || #{0}\n"
       statement += "#{DATE} ||  || #{10.00} || #{50.00}\n"
       statement += "#{DATE} || #{20.00} ||  || #{60.00}\n"
-
-      puts statement
 
       expect(account_statement.print).to eq statement
     end

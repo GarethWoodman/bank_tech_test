@@ -1,4 +1,4 @@
-require './account'
+require 'account'
 DATE = Time.now.strftime("%d/%m/%Y")
 
 describe Account do
