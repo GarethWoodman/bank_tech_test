@@ -1,5 +1,4 @@
 require 'account'
-DATE = Time.now.strftime("%d/%m/%Y")
 
 describe Account do
   context 'Default values' do

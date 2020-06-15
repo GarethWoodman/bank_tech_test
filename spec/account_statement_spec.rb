@@ -1,5 +1,4 @@
 require 'account_statement'
-DATE = Time.now.strftime("%d/%m/%Y")
 
 describe AccountStatement do
   let(:account)           { Account.new }
