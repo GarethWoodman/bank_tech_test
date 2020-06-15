@@ -56,6 +56,15 @@ date || credit || debit || balance
 15/06/2020 || 50.0 ||  || 925.0
 ```
 
+## Approach
+I used three seperate models.
+* Account - to check balance
+* Atm - to deposit/withdraw money 
+* Account Statement - to get a list of transactions 
+
+I went with this approach using real world objects. Each model has their own purpose, this allows for scalability. In this context the client can only access their account through an ATM and their transactions only get printed on an Account Statement. If we wanted a security feature we could add a 'input_pin' method on the ATM and add 'unlock/lock' methods on the Account. Having clear definitions and real world representations of these models allows features to be added seamlessly. 
+
+
 ## Planning
 ### User Stories
 ```
