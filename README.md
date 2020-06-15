@@ -34,12 +34,12 @@ irb
 > atm.withdraw(75.00)
  => 925.0 
 
-atm.withdraw(50.00)
+> atm.withdraw(50.00)
  => 875.0
 ```
 
 ```
-my_account.balance
+> my_account.balance
  => 875.0 
 
 > my_account.transactions
@@ -80,16 +80,16 @@ I want a printed bank statement
 * transaction
 #### Attributes
 * @balance
-* @transactions = [date, credit, debit, balance]
+* @transactions
 
 
 ### ATM
 #### Methods
-* deposit - Account.transaction(+n)
-* withdraw - Account.transaction(-n)
+* deposit
+* withdraw
 
 
 ### Bank Statement
 #### Methods
-* print - Account.transcations.each { |transaction| p transaction }
+* print
 
