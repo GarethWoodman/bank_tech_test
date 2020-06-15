@@ -1,4 +1,5 @@
 require './account'
+DATE = Time.now.strftime("%d/%m/%Y")
 
 describe Account do
   context 'Default values' do
@@ -13,9 +14,9 @@ describe Account do
 
   context 'Transactions' do
     let(:atm) do
-      atm = double("ATM", :date => '15/06/2020')
-      atm.stub(:deposit).with(100)  { subject.transaction(100, atm.date) }
-      atm.stub(:withdraw).with(100) { subject.transaction(-100, atm.date) }
+      atm = double("ATM")
+      atm.stub(:deposit).with(100)  { subject.transaction(100) }
+      atm.stub(:withdraw).with(100) { subject.transaction(-100) }
       atm
     end
 
@@ -35,7 +36,7 @@ describe Account do
       it 'stores date, credit, debit, balance' do
         5.times { atm.deposit(100) }
         2.times { atm.withdraw(100) }
-        expect(subject.transactions.last).to eq ['15/06/2020', 100, 0, 400]
+        expect(subject.transactions.last).to eq [DATE, 100, 0, 400]
       end
     end
   end

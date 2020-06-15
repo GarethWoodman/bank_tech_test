@@ -5,9 +5,10 @@ class Account
     @transactions = []
   end
 
-  def transaction(amount, date)
+  def transaction(amount)
     debit = 0
     credit = 0
+    date = Time.now.strftime("%d/%m/%Y")
     amount > 0 ? (debit = amount) : (credit = amount.abs)
 
     @transactions << [date, credit, debit, @balance]
