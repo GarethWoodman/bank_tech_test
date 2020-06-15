@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Atm
   def initialize(account)
     @account = account

@@ -3,6 +3,8 @@
     "coverage": {
       "/Users/garethwoodman/Desktop/Makers Academy/Projects/bank_tech_test/spec/account_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -49,6 +51,8 @@
       },
       "/Users/garethwoodman/Desktop/Makers Academy/Projects/bank_tech_test/lib/account.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -63,7 +67,9 @@
           null,
           null,
           1,
+          null,
           1,
+          14,
           14,
           14,
           14,
@@ -103,6 +109,8 @@
       },
       "/Users/garethwoodman/Desktop/Makers Academy/Projects/bank_tech_test/lib/account_statement.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           1,
@@ -121,6 +129,8 @@
       },
       "/Users/garethwoodman/Desktop/Makers Academy/Projects/bank_tech_test/spec/atm_spec.rb": {
         "lines": [
+          null,
+          null,
           1,
           null,
           1,
@@ -141,6 +151,8 @@
       },
       "/Users/garethwoodman/Desktop/Makers Academy/Projects/bank_tech_test/lib/atm.rb": {
         "lines": [
+          null,
+          null,
           1,
           1,
           3,
@@ -157,6 +169,6 @@
         ]
       }
     },
-    "timestamp": 1592232783
+    "timestamp": 1592233832
   }
 }

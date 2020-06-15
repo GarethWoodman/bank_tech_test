@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'account'
 
 describe Account do
@@ -13,7 +15,7 @@ describe Account do
 
   context 'Transactions' do
     let(:atm) do
-      atm = double("ATM")
+      atm = double('ATM')
       atm.stub(:deposit).with(100)  { subject.transaction(100) }
       atm.stub(:withdraw).with(100) { subject.transaction(-100) }
       atm
@@ -27,7 +29,7 @@ describe Account do
 
       it 'balance is -100 on withdrawal' do
         atm.withdraw(100)
-        expect(subject.balance).to eq -100
+        expect(subject.balance).to eq(-100)
       end
     end
 
@@ -35,7 +37,7 @@ describe Account do
       it 'stores date, credit, debit, balance' do
         5.times { atm.deposit(100) }
         2.times { atm.withdraw(100) }
-        expect(subject.transactions.last).to eq [DATE, 100, "", 400]
+        expect(subject.transactions.last).to eq [DATE, 100, '', 400]
       end
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Account
   attr_accessor :balance, :transactions
   def initialize
@@ -12,9 +14,11 @@ class Account
   end
 
   private
+
   def setup(amount)
-    @debit, @credit = "", ""
-    @date = Time.now.strftime("%d/%m/%Y")
-    amount > 0 ? (@debit = amount) : (@credit = amount.abs)
+    @debit  = ''
+    @credit = ''
+    @date = Time.now.strftime('%d/%m/%Y')
+    amount.positive? ? (@debit = amount) : (@credit = amount.abs)
   end
 end
