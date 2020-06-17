@@ -1,42 +1,37 @@
 # frozen_string_literal: true
 
 class Account
-  attr_accessor :balance, :transactions
-  def initialize
-    @transactions = []
+  def initialize(account_statement = AccountStatement.new)
+    @account_statement = account_statement
+    @last_transaction = {"date"=>"", "credit"=>0, "debit"=>0, "balance"=>0}
   end
 
   def deposit(amount)
-    transaction = Hash.new
-
-    transaction['date']    = Time.now.strftime('%d/%m/%Y')
-    transaction['credit']  = ''
-    transaction['debit']   = amount
-
-    if @transactions.last
-      transaction['balance'] = @transactions.last['balance'] += amount
-    else
-      transaction['balance'] = amount
-    end
-
-    @transactions << transaction
+    setup
+    @transaction['debit'] = amount
+    process
   end
 
 
   def withdraw(amount)
-    transaction = Hash.new
-
-    transaction['date']    = Time.now.strftime('%d/%m/%Y')
-    transaction['credit']  = amount
-    transaction['debit']   = ''
-
-    if @transactions.last
-      transaction['balance'] = @transactions.last['balance'] -= amount
-    else
-      transaction['balance'] = (-amount)
-    end
-
-    @transactions << transaction
+    setup
+    @transaction['credit'] = amount
+    process
   end
 
+  private
+  def setup
+    @transaction = {"date"=>Time.now.strftime('%d/%m/%Y'), "credit"=>"",
+                    "debit"=>"", "balance"=>@last_transaction['balance']}
+  end
+
+  def process
+    if @last_transaction['credit'] == ''
+      @transaction['balance'] += @last_transaction['debit']
+    else
+      @transaction['balance'] -= @last_transaction['credit']
+    end
+    @last_transaction = @transaction
+    @account_statement.add(@transaction)
+  end
 end

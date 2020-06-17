@@ -1,15 +1,14 @@
 require 'account_statement'
 
 describe AccountStatement do
-  let(:account)           { Account.new }
-  let(:atm)               { Atm.new(account) }
-  let(:account_statement) { AccountStatement.new(account)}
+  let(:account_statement) { AccountStatement.new}
+  let(:account)           { Account.new(account_statement) }
 
   context 'few transactions made' do
     let(:make_transactions) do
-      atm.deposit(50.00)
-      atm.deposit(10.00)
-      atm.withdraw(20.00)
+      account.deposit(50.00)
+      account.deposit(10.00)
+      account.withdraw(20.00)
     end
 
     it 'prints account statement' do
