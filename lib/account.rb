@@ -3,22 +3,28 @@
 class Account
   attr_accessor :balance, :transactions
   def initialize
-    @balance = 0
     @transactions = []
   end
 
-  def transaction(amount)
-    setup(amount)
-    @transactions << [@date, @credit, @debit, @balance]
-    @balance += amount
+  def deposit(amount)
+    transaction = Hash.new
+
+    transaction['date']    = Time.now.strftime('%d/%m/%Y')
+    transaction['credit']  = ''
+    transaction['debit']   = amount
+
+    if @transactions.last
+      transaction['balance'] = @transactions.last['balance'] += amount
+    else
+      transaction['balance'] = amount
+    end
+
+    @transactions << transaction
   end
 
-  private
+  #
+  # def withdraw(amount)
+  #   setup(amount)
+  # end
 
-  def setup(amount)
-    @debit  = ''
-    @credit = ''
-    @date = Time.now.strftime('%d/%m/%Y')
-    amount.positive? ? (@debit = amount) : (@credit = amount.abs)
-  end
 end
