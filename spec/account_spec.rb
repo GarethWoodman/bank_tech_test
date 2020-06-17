@@ -3,6 +3,11 @@
 require 'account'
 
 describe Account do
-  context 'Default values' do
+  it 'can deposit' do
+    expect(subject).to respond_to(:deposit)
+  end
+
+  it 'can withdraw' do
+    expect(subject).to respond_to(:withdraw)
   end
 end

@@ -12,8 +12,17 @@ class AccountStatement
   def print
     statement = 'date || credit || debit || balance\n'
     @transactions.each do |transaction|
-      statement += "#{transaction['date']} || #{transaction['credit']} || #{transaction['debit']} || #{transaction['balance']}"
-      statement += "\n"
+      statement += "#{transaction['date']} || "
+
+      if transaction['credit'] != ''
+        transaction['credit'] = '%.2f' % transaction['credit']
+      else
+        transaction['debit'] = '%.2f' % transaction['debit']
+      end
+
+      statement += "#{transaction['credit']} || "
+      statement += "#{transaction['debit']} || "
+      statement += "#{'%.2f' % transaction['balance']}\n"
     end
     statement
   end
