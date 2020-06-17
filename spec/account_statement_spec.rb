@@ -14,7 +14,7 @@ describe AccountStatement do
     it 'prints account statement' do
       make_transactions
 
-      statement =  'date || credit || debit || balance\n'
+      statement =  "date || credit || debit || balance\n"
       statement += "#{DATE} ||  || 500.00 || 2500.00\n"
       statement += "#{DATE} || 2000.00 ||  || 3000.00\n"
       statement += "#{DATE} || 1000.00 ||  || 1000.00\n"
