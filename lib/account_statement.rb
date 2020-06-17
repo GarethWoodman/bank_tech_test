@@ -11,7 +11,7 @@ class AccountStatement
 
   def print
     statement = 'date || credit || debit || balance\n'
-    @transactions.each do |transaction|
+    @transactions.reverse.each do |transaction|
       convert_to_decimal(transaction)
       statement += "#{transaction['date']} || "
       statement += "#{transaction['credit']} || "
